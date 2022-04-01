@@ -3,6 +3,7 @@ const key = "699cf8a377d203af678c55c4d5a9a9cf";
 // selects five day forcast section for cards
 const fiveDay = document.querySelector("#future");
 
+// gets weather data by city info
 const getWeather = (city) => {
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -20,7 +21,7 @@ const getWeather = (city) => {
     .then((data) => weatherData(data));
 };
 
-const searchVal = (event) => {
+const searchHandler = (event) => {
   event.preventDefault();
 
   const seachEl = document.querySelector("#city-search").value;
