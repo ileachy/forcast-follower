@@ -1,4 +1,6 @@
 // Global
+let lat = "";
+let long = "";
 const key = "699cf8a377d203af678c55c4d5a9a9cf";
 const city = document.querySelector("#search-result");
 const icon = document.querySelector("#current-img");
@@ -29,6 +31,16 @@ const getWeather = (city) => {
 };
 
 const weatherData = (data) => {
+  lat = data.coord.lat;
+  long = data.coord.lon;
+  fetch(
+    "http://api.openweathermap.org/data/2.5/forecast?lat=" +
+      lat +
+      "lon=" +
+      long +
+      "&appid=" +
+      key
+  );
   // data collection for current weather
   const { cityName } = data;
   city.innerHTML = cityName;
