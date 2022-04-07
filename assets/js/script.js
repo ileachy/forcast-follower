@@ -42,15 +42,16 @@ const weatherData = (data) => {
       lat +
       "&lon=" +
       long +
-      "&exclude=current,minutely,hourly,alerts&appid=" +
+      "&exclude=minutely,hourly,alerts&appid=" +
       key
   )
     .then((response) => {
       return response.json();
     })
-    .then((data) => {
-      console.log(data);
+    .then((forcast) => {
+      console.log(forcast);
     });
+
   // data collection for current weather
   let cityName = data.name;
   curCity.innerHTML = cityName;
