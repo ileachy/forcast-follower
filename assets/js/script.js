@@ -6,7 +6,7 @@ const cityName = document.querySelector("#city-search");
 const searchBtn = document.querySelector("#search-btn");
 const curCity = document.querySelector("#search-result");
 const icon = document.querySelector("#current-img");
-const temp = document.querySelector("#temp");
+const tempData = document.querySelector("#temp");
 const wind = document.querySelector("#wind");
 const humid = document.querySelector("#humid");
 const uvI = document.querySelector("#uv");
@@ -52,19 +52,22 @@ const weatherData = (data) => {
       console.log(data);
     });
   // data collection for current weather
-  const { cityName } = data;
+  let cityName = data.name;
   curCity.innerHTML = cityName;
 
-  const { currentIcon } = data.weather[0].icon;
-  icon.src = "http://openweathermap.org/img/wn/" + currentIcon + ".png";
+  let currentIcon = data.weather[0].icon;
+  icon.setAttribute(
+    "src",
+    "http://openweathermap.org/img/wn/" + currentIcon + ".png"
+  );
 
-  const { currentTemp } = data.main.temp;
-  temp.innerHTML = "Temp: " + currentTemp + "°F";
+  let currentTemp = data.main.temp;
+  tempData.innerHTML = "Temp: " + currentTemp + "°F";
 
-  const { currentHumid } = data.main.humidity;
+  let currentHumid = data.main.humidity;
   humid.innerHTML = "Humidity: " + currentHumid + "%";
 
-  const { currentWind } = data.wind.speed;
+  let currentWind = data.wind.speed;
   wind.innerHTML = "Wind: " + currentWind + "MPH";
 };
 
