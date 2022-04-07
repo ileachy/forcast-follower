@@ -12,9 +12,8 @@ const humid = document.querySelector("#humid");
 const uvI = document.querySelector("#uv");
 // selects five day forcast section for cards
 const fiveDay = document.querySelector("#future");
-// city search function
 
-// gets weather data by city info
+// gets weather data by city info from input
 const getWeather = (city) => {
   fetch(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -33,10 +32,11 @@ const getWeather = (city) => {
   });
 };
 
+// gets more data using more specific instructions with lat and long and onecall api
 const weatherData = (data) => {
   lat = data.coord.lat;
   long = data.coord.lon;
-  // get daily values
+  // get daily values from one call using the data from firts fetch data lat and long
   fetch(
     "https://api.openweathermap.org/data/2.5/onecall?lat=" +
       lat +
@@ -50,6 +50,9 @@ const weatherData = (data) => {
     })
     .then((forcast) => {
       console.log(forcast);
+      // grabs uv data from current onecall
+      let uvData = forcast.current.uvi;
+      uvi.innerHTML = "UV: " + uvData;
     });
 
   // data collection for current weather
@@ -74,6 +77,7 @@ const weatherData = (data) => {
 
 const searchVal = () => {};
 
+// search event listener
 searchBtn.addEventListener("click", (event) => {
   event.preventDefault();
   let citySearch = cityName.value.trim();
