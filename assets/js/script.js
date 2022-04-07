@@ -34,13 +34,16 @@ const weatherData = (data) => {
   lat = data.coord.lat;
   long = data.coord.lon;
   fetch(
-    "http://api.openweathermap.org/data/2.5/forecast?lat=" +
+    "https://api.openweathermap.org/data/2.5/onecall?lat=" +
       lat +
       "lon=" +
       long +
+      "&exclude=current,minutely,hourly,alerts" +
       "&appid=" +
       key
-  );
+  ).then((response) => {
+    return response.json();
+  });
   // data collection for current weather
   const { cityName } = data;
   city.innerHTML = cityName;
@@ -60,8 +63,6 @@ const weatherData = (data) => {
 
 const searchVal = (event) => {
   event.preventDefault();
-  const name = document.querySelector("#city-search").value.trim();
-  const seachEl = document.querySelector("#city-search").value;
 };
 
 document.querySelector("#seach-btn").addEventListener("submit", searchVal);
