@@ -53,6 +53,22 @@ const weatherData = (data) => {
       // grabs uv data from current onecall
       let uvData = forcast.current.uvi;
       uvi.innerHTML = "UV: " + uvData;
+
+      // loop through fiveday forcast section
+      for (i = 0; i < fiveDay.length; i++) {
+        fiveDay[i].innerHTML = "";
+        let fiveIcon = document.createElement("img");
+        fiveIcon.setAttribute(
+          "src",
+          "http://openweathermap.org/img/wn/ " +
+            forcast.daily[i].weather.icon +
+            ".png"
+        );
+        let fiveTemp = document.createElement("p");
+        let fiveHum = document.createElement("p");
+        let fiveWind = document.createElement("p");
+        let fiveUv = document.createElement("p");
+      }
     });
 
   // data collection for current weather
