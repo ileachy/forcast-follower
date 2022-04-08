@@ -11,7 +11,7 @@ const wind = document.querySelector("#wind");
 const humid = document.querySelector("#humid");
 const uvI = document.querySelector("#uv");
 // selects five day forcast section for cards
-const fiveDay = document.querySelector("#future");
+const fiveDay = document.querySelectorAll("#future");
 
 // gets weather data by city info from input
 const getWeather = (city) => {
@@ -37,6 +37,26 @@ const weatherData = (data) => {
   lat = data.coord.lat;
   long = data.coord.lon;
   // get daily values from one call using the data from firts fetch data lat and long
+
+  // data collection for current weather
+  let cityName = data.name;
+  curCity.innerHTML = cityName;
+
+  let currentIcon = data.weather[0].icon;
+  icon.setAttribute(
+    "src",
+    "http://openweathermap.org/img/wn/" + currentIcon + ".png"
+  );
+
+  let currentTemp = data.main.temp;
+  tempData.innerHTML = "Temp: " + currentTemp + "°F";
+
+  let currentHumid = data.main.humidity;
+  humid.innerHTML = "Humidity: " + currentHumid + "%";
+
+  let currentWind = data.wind.speed;
+  wind.innerHTML = "Wind: " + currentWind + "MPH";
+
   fetch(
     "https://api.openweathermap.org/data/2.5/onecall?lat=" +
       lat +
@@ -64,35 +84,25 @@ const weatherData = (data) => {
             forcast.daily[i].weather.icon +
             ".png"
         );
+        fiveDay[i].appendChild(fiveIcon);
+
         let fiveTemp = document.createElement("p");
         fiveTemp.innerHTML = "Temp: " + forcast.daily[i].temp.day + "°F";
+        fiveDay[i].appendChild(fiveTemp);
+
         let fiveHum = document.createElement("p");
         fiveHum.innerHTML = "Humidity: " + forcast.daily[i].humidity + "%";
+        fiveDay[i].appendChild(fiveHum);
+
         let fiveWind = document.createElement("p");
         fiveWind.innerHTML = "Wind: " + forcast.daily[i].wind_speed + "mph";
+        fiveDay[i].appendChild(fiveWind);
+
         let fiveUv = document.createElement("p");
         fiveUv.innerHTML = "UV: " + forcast.daily[i].uvi;
+        fiveDay[i].appendChild(fiveUv);
       }
     });
-
-  // data collection for current weather
-  let cityName = data.name;
-  curCity.innerHTML = cityName;
-
-  let currentIcon = data.weather[0].icon;
-  icon.setAttribute(
-    "src",
-    "http://openweathermap.org/img/wn/" + currentIcon + ".png"
-  );
-
-  let currentTemp = data.main.temp;
-  tempData.innerHTML = "Temp: " + currentTemp + "°F";
-
-  let currentHumid = data.main.humidity;
-  humid.innerHTML = "Humidity: " + currentHumid + "%";
-
-  let currentWind = data.wind.speed;
-  wind.innerHTML = "Wind: " + currentWind + "MPH";
 };
 
 const searchVal = () => {};
