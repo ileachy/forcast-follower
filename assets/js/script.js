@@ -81,7 +81,7 @@ const weatherData = (data) => {
         fiveIcon.setAttribute(
           "src",
           "http://openweathermap.org/img/wn/ " +
-            forcast.daily[i].weather.icon +
+            forcast.daily[i].weather[0].icon +
             ".png"
         );
         fiveDay[i].appendChild(fiveIcon);
