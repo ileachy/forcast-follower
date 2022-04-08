@@ -52,7 +52,7 @@ const weatherData = (data) => {
       console.log(forcast);
       // grabs uv data from current onecall
       let uvData = forcast.current.uvi;
-      uvi.innerHTML = "UV: " + uvData;
+      uvI.innerHTML = "UV: " + uvData;
 
       // loop through fiveday forcast section
       for (i = 0; i < fiveDay.length; i++) {
@@ -65,9 +65,13 @@ const weatherData = (data) => {
             ".png"
         );
         let fiveTemp = document.createElement("p");
+        fiveTemp.innerHTML = "Temp: " + forcast.daily[i].temp.day + "°F";
         let fiveHum = document.createElement("p");
+        fiveHum.innerHTML = "Humidity: " + forcast.daily[i].humidity + "%";
         let fiveWind = document.createElement("p");
+        fiveWind.innerHTML = "Wind: " + forcast.daily[i].wind_speed + "mph";
         let fiveUv = document.createElement("p");
+        fiveUv.innerHTML = "UV: " + forcast.daily[i].uvi;
       }
     });
 
