@@ -21,16 +21,24 @@
     </header>
 
     <main class="container">
-      <section class="" id="search-form">
+      <section class="col-3" id="search-form">
         <div class="">
           <h3>Search a city!</h3>
-          <form>
-            <input type="text" name="city-name" class="" id="city-search" />
+          <form class="input-group mb-3">
+            <input
+              placeholder="City Name"
+              type="text"
+              name="city-name"
+              class="form-control"
+              id="city-search"
+            />
             <button
               type="submit"
-              class="btn btn-primary"
+              class="btn btn-dark btn-outline-secondary"
               id="search-btn"
-            ></button>
+            >
+              Search
+            </button>
           </form>
         </div>
         <div>

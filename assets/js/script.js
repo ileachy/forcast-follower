@@ -62,7 +62,7 @@ const weatherData = (data) => {
       lat +
       "&lon=" +
       long +
-      "&exclude=minutely,hourly,alerts&appid=" +
+      "&units=imperial&exclude=minutely,hourly,alerts&appid=" +
       key
   )
     .then((response) => {
