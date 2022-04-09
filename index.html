@@ -14,19 +14,23 @@
     <title>Forcast Follower</title>
   </head>
   <body>
-    <header class=".container">
-      <div>
+    <header class="col-12">
+      <div class="text-center col-12">
         <h1>Weather you WANT!</h1>
       </div>
     </header>
 
-    <main class=".container">
+    <main class="container">
       <section class="" id="search-form">
-        <div>
+        <div class="">
           <h3>Search a city!</h3>
           <form>
             <input type="text" name="city-name" class="" id="city-search" />
-            <button type="submit" id="search-btn"></button>
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="search-btn"
+            ></button>
           </form>
         </div>
         <div>
@@ -34,7 +38,7 @@
         </div>
       </section>
 
-      <section class="" id="current">
+      <section class="row col-12 text-center" id="current">
         <div>
           <span id="search-result"></span>
           <img src="" alt="" id="current-img" />
@@ -47,13 +51,13 @@
         </div>
       </section>
 
-      <section class="" id="five-day">
-        <h2>Looking Ahead!</h2>
-        <div id="future"></div>
-        <div id="future"></div>
-        <div id="future"></div>
-        <div id="future"></div>
-        <div id="future"></div>
+      <section class="row" id="five-day">
+        <h2 class="col-12 text-center">Looking Ahead!</h2>
+        <div class="col card border-dark" id="future"></div>
+        <div class="col card border-dark" id="future"></div>
+        <div class="col card border-dark" id="future"></div>
+        <div class="col card border-dark" id="future"></div>
+        <div class="col card border-dark" id="future"></div>
       </section>
     </main>
     <script src="./assets/js/script.js"></script>
