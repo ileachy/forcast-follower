@@ -77,12 +77,11 @@ const weatherData = (data) => {
       // loop through fiveday forcast section
       for (i = 0; i < fiveDay.length; i++) {
         fiveDay[i].innerHTML = "";
+        let dailyIcon = forcast.daily[i].weather[0].icon;
         let fiveIcon = document.createElement("img");
         fiveIcon.setAttribute(
           "src",
-          "http://openweathermap.org/img/wn/ " +
-            forcast.daily[i].weather[0].icon +
-            ".png"
+          "http://openweathermap.org/img/wn/" + dailyIcon + ".png"
         );
         fiveDay[i].appendChild(fiveIcon);
 
