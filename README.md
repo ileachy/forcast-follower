@@ -40,3 +40,5 @@ To use this app simply launch it from the url and enter a city you would like to
 Regarding any questions, feel free to email me or add an issue to the repo as needed.
 
 ## <img id="screenshots" src="https://github.com/teamjuli0/readme-badges/blob/main/themes/clean-dark/menu-categories/screenshots.png?raw=true" style="height: 40px">
+
+<img style="margin: 0 0 15px 0" src="assets/img/final-shot.png" />
